@@ -5,6 +5,7 @@ from pyfaidx import Fasta
 from keras.models import load_model
 import logging
 
+from spliceai import MODELS
 
 class Annotator:
 
@@ -39,8 +40,7 @@ class Annotator:
             logging.error('{}'.format(e))
             exit()
 
-        paths = ('models/spliceai{}.h5'.format(x) for x in range(1, 6))
-        self.models = [load_model(resource_filename(__name__, x)) for x in paths]
+        self.models = MODELS
 
     def get_name_and_strand(self, chrom, pos):
 
