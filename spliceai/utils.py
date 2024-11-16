@@ -15,6 +15,8 @@ class Annotator:
             annotations = resource_filename(__name__, 'annotations/grch37.txt')
         elif annotations == 'grch38':
             annotations = resource_filename(__name__, 'annotations/grch38.txt')
+        elif annotations == 'grch38_custom':
+            annotations = resource_filename(__name__, 'annotations/grch38_custom.txt')
 
         try:
             df = pd.read_csv(annotations, sep='\t', dtype={'CHROM': object})
